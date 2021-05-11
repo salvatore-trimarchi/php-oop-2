@@ -27,7 +27,8 @@ class User {
 		$now = date_create(date('Y-m-d'));
 		$age = date_diff($now,$birth_date);
 		if ($age->y < 18) {
-			throw new Exception('Utente è minorenne!');
+			$this->adult_bool = false;
+			throw new Exception('Utente minorenne!');
 		} else {
 			$this->adult_bool = true;
 		}
